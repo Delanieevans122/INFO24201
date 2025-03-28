@@ -44,7 +44,7 @@
 
         /* Hide the print button image until the rollover event triggers */
         #printButton img {
-            display: inline-block;
+            display: block; /* Ensures print button image is always displayed */
         }
     </style>
 
@@ -103,6 +103,7 @@
         }
     </script>
 </head>
+
 <body onload="preloadImages()">
 
 <div align="center">
@@ -137,11 +138,6 @@
     <div id="image">
         <img id="theImage" src="Images/Fullsize/Image1Lg.jpg" alt="Dog doing trick" />
         <h3 id="bottomText">Dog Performing a Trick</h3>
-    </div>
-
-    <!-- Link to sitedesign.html -->
-    <div style="text-align: center;">
-        <a href="sitedesign.html">Visit Site Design</a>
     </div>
 </div>
 
