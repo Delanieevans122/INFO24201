@@ -1,107 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Rent a Pet - Graphics</title>
+    <meta charset="UTF-8">
+    <title>Rent a Pet - Graphics</title>
 
-<style type="text/css">
-    #thumbs, #image {
-        width: 900px;
-        text-align: center;
-        margin: 0 auto;
-        color: #000;
-        position: relative;
-    }
-
-    #thumbs {
-        margin-top: 10px;
-    }
-
-    #thumbs img {
-        border: solid 1px #000;
-        margin: 5px;
-        cursor: pointer; /* Add a pointer cursor for better UX */
-    }
-
-    #image {
-        height: 500px;
-        position: relative;
-        z-index: 1; /* Ensure the image is above background */
-    }
-
-    .instructions {
-        font-style: italic;
-    }
-
-    /* Fix for background (colback) image */
-    body {
-        background-image: url('images/2colback.jpg');
-        background-repeat: repeat-x; /* Ensure it repeats horizontally */
-        background-position: top center;
-        background-attachment: fixed; /* Keeps it fixed while scrolling */
-        background-size: 100% auto; /* Automatically adjust height */
-    }
-
-    /* Hide the print button image until the rollover event triggers */
-    #printButton img {
-        display: inline-block;
-    }
-</style>
-
-<script language="JavaScript" type="text/javascript">
-    // Ensure the print button images are preloaded
-    PrintButton1 = new Image;
-    PrintButton2 = new Image;
-    logo1 = new Image;
-    logo2 = new Image;
-
-    if (document.images) {
-        // Update image paths to match Print1.jpg, Print2.jpg, and logo2.png
-        PrintButton1.src = "Images/Print1.jpg";  // Update to Print1.jpg
-        PrintButton2.src = "Images/Print2.jpg";  // Update to Print2.jpg
-        logo1.src = "Images/logo1.jpg";          // Assuming logo1.jpg is your default logo
-        logo2.src = "Images/logo2.png";          // Update to logo2.png
-    }
-
-    var imgArray = [
-        'Image1Lg.jpg',  // Full-size Image 1
-        'Image2Lg.jpg',  // Full-size Image 2
-        'Image3Lg.jpg',  // Full-size Image 3
-        'Image4Lg.jpg'   // Full-size Image 4
-    ];
-
-    var titleArray = [
-        'Dog Performing a Trick',
-        'Two Dogs',
-        'Dog and Two Boys Portrait',
-        'Woman and Dog'
-    ];
-
-    var imgPath = "Images/Fullsize/";
-
-    // This function will switch the full-size image and caption based on the thumbnail clicked
-    function swapImage(imgID) {
-        var theImage = document.getElementById('theImage');
-        var textDiv = document.getElementById('bottomText');
-
-        var newImg = imgArray[imgID];
-        theImage.src = imgPath + newImg; // Update the main image
-        textDiv.innerHTML = titleArray[imgID]; // Update the caption text
-    }
-
-    // Preload the full-size images
-    function preloadImages() {
-        for (var i = 0; i < imgArray.length; i++) {
-            var tmpImg = new Image();
-            tmpImg.src = imgPath + imgArray[i];
+    <style type="text/css">
+        #thumbs, #image {
+            width: 900px;
+            text-align: center;
+            margin: 0 auto;
+            color: #000;
+            position: relative;
         }
-    }
 
-    // Print function
-    function printPage() {
-        window.print(); // This triggers the browser's print dialog
-    }
-</script>
+        #thumbs {
+            margin-top: 10px;
+        }
+
+        #thumbs img {
+            border: solid 1px #000;
+            margin: 5px;
+            cursor: pointer; /* Add a pointer cursor for better UX */
+        }
+
+        #image {
+            height: 500px;
+            position: relative;
+            z-index: 1; /* Ensure the image is above background */
+        }
+
+        .instructions {
+            font-style: italic;
+        }
+
+        /* Fix for background (colback) image */
+        body {
+            background-image: url('images/2colback.jpg');
+            background-repeat: repeat-x; /* Ensure it repeats horizontally */
+            background-position: top center;
+            background-attachment: fixed; /* Keeps it fixed while scrolling */
+            background-size: 100% auto; /* Automatically adjust height */
+        }
+
+        /* Hide the print button image until the rollover event triggers */
+        #printButton img {
+            display: inline-block;
+        }
+    </style>
+
+    <script language="JavaScript" type="text/javascript">
+        // Ensure the print button images are preloaded
+        PrintButton1 = new Image;
+        PrintButton2 = new Image;
+        logo1 = new Image;
+        logo2 = new Image;
+
+        if (document.images) {
+            // Update image paths to match Print1.jpg, Print2.jpg, and logo2.png
+            PrintButton1.src = "Images/Print1.jpg";  // Update to Print1.jpg
+            PrintButton2.src = "Images/Print2.jpg";  // Update to Print2.jpg
+            logo1.src = "Images/logo1.jpg";          // Assuming logo1.jpg is your default logo
+            logo2.src = "Images/logo2.png";          // Update to logo2.png
+        }
+
+        var imgArray = [
+            'Image1Lg.jpg',  // Full-size Image 1
+            'Image2Lg.jpg',  // Full-size Image 2
+            'Image3Lg.jpg',  // Full-size Image 3
+            'Image4Lg.jpg'   // Full-size Image 4
+        ];
+
+        var titleArray = [
+            'Dog Performing a Trick',
+            'Two Dogs',
+            'Dog and Two Boys Portrait',
+            'Woman and Dog'
+        ];
+
+        var imgPath = "Images/Fullsize/";
+
+        // This function will switch the full-size image and caption based on the thumbnail clicked
+        function swapImage(imgID) {
+            var theImage = document.getElementById('theImage');
+            var textDiv = document.getElementById('bottomText');
+
+            var newImg = imgArray[imgID];
+            theImage.src = imgPath + newImg; // Update the main image
+            textDiv.innerHTML = titleArray[imgID]; // Update the caption text
+        }
+
+        // Preload the full-size images
+        function preloadImages() {
+            for (var i = 0; i < imgArray.length; i++) {
+                var tmpImg = new Image();
+                tmpImg.src = imgPath + imgArray[i];
+            }
+        }
+
+        // Print function
+        function printPage() {
+            window.print(); // This triggers the browser's print dialog
+        }
+    </script>
 </head>
 <body onload="preloadImages()">
 
@@ -137,6 +137,11 @@
     <div id="image">
         <img id="theImage" src="Images/Fullsize/Image1Lg.jpg" alt="Dog doing trick" />
         <h3 id="bottomText">Dog Performing a Trick</h3>
+    </div>
+
+    <!-- Link to sitedesign.html -->
+    <div style="text-align: center;">
+        <a href="sitedesign.html">Visit Site Design</a>
     </div>
 </div>
 
