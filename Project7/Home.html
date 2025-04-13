@@ -7,9 +7,20 @@
     <link rel="stylesheet" type="text/css" href="mystyles.css">
     <!-- Link to external JavaScript file -->
     <script src="myscripts.js"></script>
+    <script>
+        // Function to load PetsWelcome.txt dynamically
+        function loadPetsWelcome() {
+            fetch('PetsWelcome.txt')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('pets-welcome').textContent = data;
+                })
+                .catch(error => console.error('Error loading the file:', error));
+        }
+    </script>
 </head>
 
-<body onload="preloadImages()">
+<body onload="preloadImages(); loadPetsWelcome();">
 
     <!-- Header Section -->
     <header>
@@ -43,6 +54,12 @@
                 <img src="Images/Cat2Sm.jpg" alt="Cat" width="200">
                 <p>Cuddle up with Bella, our sweet cat.</p>
             </div>
+        </section>
+
+        <!-- Section for dynamically loaded PetsWelcome.txt content -->
+        <section id="pets-welcome">
+            <h3>Welcome Message</h3>
+            <!-- PetsWelcome.txt content will be loaded here -->
         </section>
     </main>
 
